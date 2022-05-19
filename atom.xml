@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>邵子轩的博客</title>
+  
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2022-05-16T14:01:06.803Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>邵子轩</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>解决Git报错之ssh:connect to host github.com port 22 ：Connection timed out</title>
+    <link href="http://example.com/2022/05/16/git%E6%8A%A5%E9%94%99port22/"/>
+    <id>http://example.com/2022/05/16/git%E6%8A%A5%E9%94%99port22/</id>
+    <published>2022-05-16T13:20:32.000Z</published>
+    <updated>2022-05-16T14:01:06.803Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>当作者完成博客主题修改并准备推送至GitHub仓库时，出现了报错：</p><blockquote><p>connect to host github.com port 22: Connection timed out</p></blockquote><p>作者查阅资料并尝试了几种方法后最终找到了解决方法，在这里记录分享。</p><h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>首先需要在<code>Git Bash</code>命令行检查SSH是否连接正常：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure><p>如果依旧出错会显示：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">connect to host github.com port 22: Connection timed out</span><br></pre></td></tr></table></figure><p>最开始作者认为是git使用的问题，最后通过配置hosts解决了问题</p><blockquote><p>hosts的文件路径：C:\Windows\System32\drivers\etc\hosts</p></blockquote><p>修改hosts文件添加内容：</p><blockquote><p>140.82.112.3 github.com<br>140.82.114.4 gist.github.com<br>185.199.108.153 assets-cdn.github.com<br>199.232.68.133 raw.githubusercontent.com<br>199.232.68.133 gist.githubusercontent.com<br>199.232.68.133 cloud.githubusercontent.com<br>199.232.68.133 camo.githubusercontent.com<br>199.232.68.133 avatars0.githubusercontent.com<br>199.232.68.133 avatars1.githubusercontent.com<br>199.232.68.133 avatars2.githubusercontent.com<br>199.232.68.133 avatars3.githubusercontent.com<br>199.232.68.133 avatars4.githubusercontent.com<br>199.232.68.133 avatars5.githubusercontent.com<br>199.232.68.133 avatars6.githubusercontent.com<br>199.232.68.133 avatars7.githubusercontent.com<br>199.232.68.133 avatars8.githubusercontent.com</p></blockquote><p>对于hosts的修改是即刻生效，现在就可以正常使用git推送了。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h1&gt;&lt;p&gt;当作者完成博客主题修改并准备推送至GitHub仓库时，出现了报错：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;connect </summary>
+      
+    
+    
+    
+    <category term="问题解决" scheme="http://example.com/categories/%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
+    
+    
+    <category term="Git" scheme="http://example.com/tags/Git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>更换iconfont作为博客图标源</title>
+    <link href="http://example.com/2022/05/11/%E6%9B%B4%E6%8D%A2iconfont%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9B%BE%E6%A0%87%E6%BA%90/"/>
+    <id>http://example.com/2022/05/11/%E6%9B%B4%E6%8D%A2iconfont%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9B%BE%E6%A0%87%E6%BA%90/</id>
+    <published>2022-05-11T06:53:31.000Z</published>
+    <updated>2022-05-14T07:25:53.856Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>　　在初步尝试搭建个人博客时，作者采用的是Hexo Fluid主题，当作者改为Hexo Butterfly主题（后续简称<font color="Crimson"><strong>B主题</strong></font>）时发现其默认使用的图标库对国内软件图标的支持不够好，出现很多缺失的情况。<br> 　　B主题默认调用的是国外的<a href="https://fontawesome.com/">font-awesome</a> 图标库，关于国内平台的图标甚少。作者想到平常下载使用图标较多的国内平台：<font color="Crimson"><strong>阿里巴巴矢量图库</strong></font>，使用该平台提供的图标作为替代。阿里巴巴矢量图库作为国内的图标库提供了海量图标可供选择，不乏国内外网站、软件的图标。</p><h1 id="解决过程"><a href="#解决过程" class="headerlink" title="解决过程"></a>解决过程</h1><h2 id="图标获取"><a href="#图标获取" class="headerlink" title="图标获取"></a>图标获取</h2><ol><li>进入<a href="https://www.iconfont.cn/">阿里巴巴矢量图库（iconfont）</a>,查找自己需要的图标，并将其添加进购物车。<br><img src="https://cdn.jsdelivr.net/gh/s-shao/CDN-source/%E6%9B%B4%E6%8D%A2iconfont%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9B%BE%E6%A0%87%E6%BA%90/1.png"></li><li>将所有需要的图标都加入购物车后，点击网站右上角购物车图标。在右侧弹出的窗口中选择<code>添加至项目</code>，网站会自动跳转至个人项目页面。<br><img src="https://cdn.jsdelivr.net/gh/s-shao/CDN-source/%E6%9B%B4%E6%8D%A2iconfont%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9B%BE%E6%A0%87%E6%BA%90/2.png"></li><li>选择<code>Font class</code>并点击查看在线链接。<br><img src="https://cdn.jsdelivr.net/gh/s-shao/CDN-source/%E6%9B%B4%E6%8D%A2iconfont%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9B%BE%E6%A0%87%E6%BA%90/3.png"></li><li>在浏览器打开在线链接，保存该css文件至本地文件夹<blockquote><p>根目录\themes\butterfly\source\css\iconfont.css</p></blockquote></li></ol><p><img src="https://cdn.jsdelivr.net/gh/s-shao/CDN-source/%E6%9B%B4%E6%8D%A2iconfont%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9B%BE%E6%A0%87%E6%BA%90/4.png"></p><h2 id="文件引用"><a href="#文件引用" class="headerlink" title="文件引用"></a>文件引用</h2><ol><li>以B主题为例引入外部样式的设置<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">inject:</span></span><br><span class="line">  <span class="attr">head:</span></span><br><span class="line">    <span class="comment"># - &lt;link rel=&quot;stylesheet&quot; href=&quot;/xxx.css&quot;&gt;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&lt;link</span> <span class="string">rel=&quot;stylesheet&quot;</span> <span class="string">href=&quot;/css/background.css&quot;&gt;</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">&lt;link</span> <span class="string">rel=&quot;stylesheet&quot;</span> <span class="string">href=&quot;/css/iconfont.css&quot;&gt;</span></span><br><span class="line">  <span class="attr">bottom:</span></span><br><span class="line">    <span class="comment"># - &lt;script src=&quot;xxxx&quot;&gt;&lt;/script&gt;</span></span><br></pre></td></tr></table></figure></li><li>配置新图标<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">social:</span></span><br><span class="line">   <span class="comment">#使用iconfont的图标</span></span><br><span class="line">   <span class="attr">iconfont icon-github:</span> <span class="string">https://github.com/s-shao</span> <span class="string">||</span> <span class="string">Github</span></span><br><span class="line">   <span class="attr">iconfont icon-gitee:</span> <span class="string">https://gitee.com/shaozixuan</span> <span class="string">||</span> <span class="string">Gitee</span></span><br></pre></td></tr></table></figure></li><li>由于不同设计者的iconfont图标大小不一致，为了美观，在<code>iconfont.css</code>中对图标进行统一设定<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.iconfont</span> &#123;</span><br><span class="line">  <span class="attribute">font-family</span>: <span class="string">&quot;iconfont&quot;</span> <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">25px</span>;</span><br><span class="line">  <span class="attribute">font-style</span>: normal;</span><br><span class="line">  -webkit-<span class="attribute">font-smoothing</span>: antialiased;</span><br><span class="line">  -moz-osx-<span class="attribute">font-smoothing</span>: grayscale;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h2>通过以上修改后即可在博客的个人介绍页面正常显示个人链接图标<br><img src="https://cdn.jsdelivr.net/gh/s-shao/CDN-source/%E6%9B%B4%E6%8D%A2iconfont%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9B%BE%E6%A0%87%E6%BA%90/5.png"></li></ol><h2 id="参考网站"><a href="#参考网站" class="headerlink" title="参考网站"></a>参考网站</h2><ul><li>hexo引用iconfont图标设置教程<br><a href="https://cloud.tencent.com/developer/article/1813883">https://cloud.tencent.com/developer/article/1813883</a><br><a href="https://blog.csdn.net/weixin_58068682/article/details/116613541">https://blog.csdn.net/weixin_58068682/article/details/116613541</a></li><li>hexo Butterfly主题美化教程<br><a href="https://blog.csdn.net/YR_112233/article/details/122778691">https://blog.csdn.net/YR_112233/article/details/122778691</a><br><a href="https://blog.csdn.net/u012208219/article/details/106882981">https://blog.csdn.net/u012208219/article/details/106882981</a></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h1&gt;&lt;p&gt;　　在初步尝试搭建个人博客时，作者采用的是Hexo Fluid主题，当作者改为Hexo Butterfly主题（后续简称&lt;f</summary>
+      
+    
+    
+    
+    <category term="hexo教程" scheme="http://example.com/categories/hexo%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="hexo" scheme="http://example.com/tags/hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>配置VS2017和Qt5.12.2和GDAL2.3.1开发环境</title>
+    <link href="http://example.com/2022/05/01/%E9%85%8D%E7%BD%AEVS2017%E5%92%8CQt5%E5%92%8CGDAL2%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
+    <id>http://example.com/2022/05/01/%E9%85%8D%E7%BD%AEVS2017%E5%92%8CQt5%E5%92%8CGDAL2%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</id>
+    <published>2022-05-01T07:00:42.000Z</published>
+    <updated>2022-05-11T04:04:42.615Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>在软件开发中需要使用VS2017、Qt5.12.2和GDAL2.3.1，通过查阅网络资料并结合个人经验总结了一下配置相关环境的步骤，在此分享。</p><h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><h2 id="在VS2017中配置Qt环境可以参考下方链接，已走通无问题。"><a href="#在VS2017中配置Qt环境可以参考下方链接，已走通无问题。" class="headerlink" title="在VS2017中配置Qt环境可以参考下方链接，已走通无问题。"></a>在VS2017中配置Qt环境可以参考下方链接，已走通无问题。</h2><p><a href="https://blog.csdn.net/yxy244/article/details/94971602">https://blog.csdn.net/yxy244/article/details/94971602</a></p><h2 id="在VS2017中配置已经编译好的GDAL环境步骤如下。其中GDAL的根目录命名方式根据个人文件夹实际命名自行修改。"><a href="#在VS2017中配置已经编译好的GDAL环境步骤如下。其中GDAL的根目录命名方式根据个人文件夹实际命名自行修改。" class="headerlink" title="在VS2017中配置已经编译好的GDAL环境步骤如下。其中GDAL的根目录命名方式根据个人文件夹实际命名自行修改。"></a>在VS2017中配置已经编译好的GDAL环境步骤如下。其中GDAL的根目录命名方式根据个人文件夹实际命名自行修改。</h2><p>在属性页-C&#x2F;C++-常规中对附加包含目录进行设置，从本地存放GDAL的文件夹中添加</p><pre><code>\gdal2.3.1\include</code></pre><p><img src="https://cdn.jsdelivr.net/gh/s-shao/CDN-source/%E9%85%8D%E7%BD%AEVS2017%E5%92%8CQt5%E5%92%8CGDAL2%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/01.jpg"></p><p>在属性页-链接器-常规中对附加库目录进行设置，从本地存放GDAL的文件夹中添加</p><pre><code>\gdal2.3.1\lib</code></pre><p><img src="https://cdn.jsdelivr.net/gh/s-shao/CDN-source/%E9%85%8D%E7%BD%AEVS2017%E5%92%8CQt5%E5%92%8CGDAL2%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/02.jpg"></p><p>属性页-链接器-输入中对附加依赖项进行设置，从本地存放GDAL的文件夹中添加</p><pre><code>gdal_i.lib</code></pre><p><img src="https://cdn.jsdelivr.net/gh/s-shao/CDN-source/%E9%85%8D%E7%BD%AEVS2017%E5%92%8CQt5%E5%92%8CGDAL2%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/03.jpg"></p><h2 id="在VS中使用Qt时需要注意"><a href="#在VS中使用Qt时需要注意" class="headerlink" title="在VS中使用Qt时需要注意"></a>在VS中使用Qt时需要注意</h2><ul><li><p>在Qt Designer中对.ui文件进行任何修改后，如果为了使得VS中有反应，需要在VS界面中的项目上右键，点击“生成”</p></li><li><p>不要删除创建Qt Widgets Application项目时默认生成的和项目同名的.ui文件及相应的.cpp和.h文件，可以根据这两个文件在自己设计界面的.ui文件相应的.cpp和.h文件中进行仿写。</p></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h1&gt;&lt;p&gt;在软件开发中需要使用VS2017、Qt5.12.2和GDAL2.3.1，通过查阅网络资料并结合个人经验总结了一下配置相关环境</summary>
+      
+    
+    
+    
+    <category term="环境配置" scheme="http://example.com/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+    
+    <category term="VS" scheme="http://example.com/tags/VS/"/>
+    
+    <category term="Qt" scheme="http://example.com/tags/Qt/"/>
+    
+    <category term="GDAL" scheme="http://example.com/tags/GDAL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何配置Qt5.12.2 + VS2017 + QGIS3.16.6的二次开发环境</title>
+    <link href="http://example.com/2022/04/30/%E9%85%8D%E7%BD%AEQGIS%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"/>
+    <id>http://example.com/2022/04/30/%E9%85%8D%E7%BD%AEQGIS%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</id>
+    <published>2022-04-30T09:36:00.000Z</published>
+    <updated>2022-05-11T04:04:16.392Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>近期在项目软件开发中遇到这样的需求:在Qt Designer设计的界面的控件上通过画布（canvas）的方式显示矢量数据。</p><p>最开始的思考方案是使用Qt Designer中的Qt GraphicsView控件结合GDAL实现。通过查阅相关网络教程发现比较麻烦。在过程中偶然发现一个思路是利用QGIS进行二次开发，可以使用较简单的代码实现丰富的功能。</p><p>在前期调研中了解到：通过OSGEO4W下载得到的编译好的QGIS二次开发库均为release版本，而我的项目代码是debug版本。一开始想通过参考博客自己编译debug版本的QGIS二次开发库，但是过于复杂，最后转变思路看release版本是否能满足开发需求。</p><h1 id="准备数据及软件"><a href="#准备数据及软件" class="headerlink" title="准备数据及软件"></a>准备数据及软件</h1><h2 id="QGIS二次开发库"><a href="#QGIS二次开发库" class="headerlink" title="QGIS二次开发库"></a>QGIS二次开发库</h2><p>OSGEO4W的下载器分为32位和64位两个版本，对应下载的QGIS二次开发库也分为32位和64位编译的版本，需要根据自己的需求选择下载器。目前官网只提供了64位下载器，如果是有32位二次开发库需求的话需要自己找对应的下载器。</p><ul><li>在OSGEO4W的下载器中采用武汉大学的镜像仓库下载速度更快：<a href="http://gwmodel.whu.edu.cn/mirrors/osgeo4w">http://gwmodel.whu.edu.cn/mirrors/osgeo4w</a></li></ul><p>在Select Package页面的Search栏输入<strong>qgis</strong>，点击展开<strong>Libs</strong>，当第二次点击<strong>Libs</strong>时在<strong>Current</strong>列会显示版本号，其中包含最新支持版本和长期支持版本QGIS，为了保险起见可以全选。然后点击下一页，按提示即可正常下载。<br><img src="https://cdn.jsdelivr.net/gh/s-shao/CDN-source/%E9%85%8D%E7%BD%AEQGIS%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/1.png"></p><ul><li>下载得到的文件夹如下图所示：</li></ul><p><img src="https://cdn.jsdelivr.net/gh/s-shao/CDN-source/%E9%85%8D%E7%BD%AEQGIS%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/2.png"></p><ul><li>在子文件夹apps中包含了下载得到的最新支持版本QGIS（<strong>qgis</strong>）和长期支持版本QGIS（<strong>qgis-ltr</strong>），可以根据自己需要选择后续VS环境配置时的依赖。</li></ul><p><img src="https://cdn.jsdelivr.net/gh/s-shao/CDN-source/%E9%85%8D%E7%BD%AEQGIS%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/3.png"></p><h2 id="在VS2017中配置环境"><a href="#在VS2017中配置环境" class="headerlink" title="在VS2017中配置环境"></a>在VS2017中配置环境</h2><p>对于Qt在VS2017中使用的配置可以参考相关网站，在此不再赘述。下面将假定已配置好Qt5.12.2 + VS2017环境，主要讲一下如何在VS2017中配置QGIS二次开发环境。</p><p>以我的任务为例，首先将项目的调试设置为<strong>release</strong>和<strong>X64</strong>，对应的我需要使用编译好的64位QGIS二次开发库。</p><ul><li>在属性页-Qt Project Settings中对<strong>Qt Modules</strong>设置。默认创建的VS Qt项目只包含core、gui等模块，因此需要手动补充勾选<strong>xml</strong>模块及<strong>xmlpattern</strong>等模块。</li></ul><p><img src="https://cdn.jsdelivr.net/gh/s-shao/CDN-source/%E9%85%8D%E7%BD%AEQGIS%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/4.png"></p><p>*在属性页-C&#x2F;C++-常规中对附加包含目录进行设置，从下载至本地的OSGEO4W文件夹中添加</p><pre><code>OSGEO4W\includeOSGEO4W\apps\qgis\include</code></pre><p><img src="https://cdn.jsdelivr.net/gh/s-shao/CDN-source/%E9%85%8D%E7%BD%AEQGIS%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/5.png"></p><p>*在链接器-常规中对<strong>附加库目录</strong>进行设置，从下载至本地的OSGEO4W文件夹中添加</p><pre><code>OSGEO4W\libOSGEO4W\apps\qgis\lib$(QTDIR)\lib</code></pre><p><img src="https://cdn.jsdelivr.net/gh/s-shao/CDN-source/%E9%85%8D%E7%BD%AEQGIS%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/6.png"></p><p>*在链接器-输入中对<strong>附加依赖项</strong>进行设置，从下载至本地的OSGEO4W文件夹中添加</p><pre><code>qgis_core.libqgis_app.libqgis_gui.lib</code></pre><p><img src="https://cdn.jsdelivr.net/gh/s-shao/CDN-source/%E9%85%8D%E7%BD%AEQGIS%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/7.png"></p><h2 id="配置系统环境变量"><a href="#配置系统环境变量" class="headerlink" title="配置系统环境变量"></a>配置系统环境变量</h2><p>在系统的环境变量中添加并设置Qt的msvc2017_64编译器所在文件夹和对应的扩展（plugin）所在文件夹。</p><ul><li>变量：QTDIR<br>  C:\Qt\Qt5.12.2\5.12.2\msvc2017_64</li><li>变量：QT_PLUGIN_PATH<br>  C:\Qt\Qt5.12.2\5.12.2\msvc2017_64\plugins</li></ul><h2 id="拷贝需要的dll文件"><a href="#拷贝需要的dll文件" class="headerlink" title="拷贝需要的dll文件"></a>拷贝需要的dll文件</h2><p>从以下文件夹中将全部的dll文件，拷贝至自己项目的release文件夹下</p><pre><code>Qt\Qt5.12.2\5.12.2\msvc2017_64\binQt\Qt5.12.2\5.12.2\msvc2017_64\plugins\platformsOSGEO4W\binOSGEO4W\apps\qgis\bin</code></pre>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h1&gt;&lt;p&gt;近期在项目软件开发中遇到这样的需求:在Qt Designer设计的界面的控件上通过画布（canvas）的方式显示矢量数据。&lt;</summary>
+      
+    
+    
+    
+    <category term="环境配置" scheme="http://example.com/categories/%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/"/>
+    
+    
+    <category term="QGIS" scheme="http://example.com/tags/QGIS/"/>
+    
+    <category term="VS" scheme="http://example.com/tags/VS/"/>
+    
+    <category term="Qt" scheme="http://example.com/tags/Qt/"/>
+    
+  </entry>
+  
+</feed>
