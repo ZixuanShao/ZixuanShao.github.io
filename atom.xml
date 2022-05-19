@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-05-16T14:01:06.803Z</updated>
+  <updated>2022-05-19T14:21:48.199Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>hexo博客添加RSS订阅</title>
+    <link href="http://example.com/2022/05/19/hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0RSS%E8%AE%A2%E9%98%85/"/>
+    <id>http://example.com/2022/05/19/hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0RSS%E8%AE%A2%E9%98%85/</id>
+    <published>2022-05-19T13:14:51.000Z</published>
+    <updated>2022-05-19T14:21:48.199Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>RSS订阅对于一些朋友已经是上古的功能了，在Windows Vista时代的桌面小组件就有<code>RSS</code>的身影。<br>RSS订阅是一种类似聚合信息流的服务，当用户订阅的网站有更新时，会以<code>feed软件</code>信息推送、<code>邮件</code>推送等形式将内容推送给用户。推送内容的条数一般由网站自定义。<br>刚好现在有自己搭建博客，同时也关注了一些优质的博主，那么想要第一时间获取他们更新的博文便可以借助<code>RSS</code>实现需求。</p><h1 id="问题解决"><a href="#问题解决" class="headerlink" title="问题解决"></a>问题解决</h1><h2 id="安装所需插件"><a href="#安装所需插件" class="headerlink" title="安装所需插件"></a>安装所需插件</h2><p>hexo博客提供了生成RSS的XML文件的插件，可以用过命令行的形式安装至hexo博客的根目录。此处作者采用的是<code>Atom</code>格式进行消息推送。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-feed</span><br></pre></td></tr></table></figure><h2 id="添加配置"><a href="#添加配置" class="headerlink" title="添加配置"></a>添加配置</h2><p>对hexo博客根目录下的<code>_config.yml</code>文件进行修改：</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="attr">plugins:</span></span><br><span class="line">    <span class="string">hexo-generator-feed</span></span><br><span class="line"><span class="comment">#Feed Atom</span></span><br><span class="line"><span class="comment">#设置RSS订阅功能</span></span><br><span class="line"><span class="attr">feed:</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">atom</span> <span class="comment"># 生成的类型，RSS对应atom</span></span><br><span class="line">    <span class="attr">path:</span> <span class="string">atom.xml</span> <span class="comment"># 生成的文件名</span></span><br><span class="line">    <span class="attr">limit:</span> <span class="number">20</span> <span class="comment"># 选取推送的文章数量</span></span><br></pre></td></tr></table></figure><h2 id="为Butterfly主题添加RSS订阅按钮"><a href="#为Butterfly主题添加RSS订阅按钮" class="headerlink" title="为Butterfly主题添加RSS订阅按钮"></a>为Butterfly主题添加RSS订阅按钮</h2><p>截至“添加配置”步骤，博客已经具备RSS订阅功能，如果想要在自己博客界面提供图标显示可以继续往下看。</p><p>对butterfly主题的根目录下的<code>_config.yml</code>文件进行修改：在社交媒体板块添加RSS订阅图标，并让其指向相关网页<code>博客地址\atom.xml</code>。</p><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">iconfont icon-xinhao:</span> <span class="string">/atom.xml</span> <span class="string">||</span> <span class="string">RSS链接</span></span><br></pre></td></tr></table></figure><p>RSS订阅图标采用的是<code>iconfont图库</code>提供的图标，添加方法可参考之前的博文：</p><blockquote><p><a href="https://s-shao.github.io/2022/05/11/%E6%9B%B4%E6%8D%A2iconfont%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9B%BE%E6%A0%87%E6%BA%90/">https://s-shao.github.io/2022/05/11/%E6%9B%B4%E6%8D%A2iconfont%E4%BD%9C%E4%B8%BA%E5%8D%9A%E5%AE%A2%E5%9B%BE%E6%A0%87%E6%BA%90/</a></p></blockquote><p>完成所有设置后记得生成文件，并部署博客！</p><h2 id="RSS订阅浏览"><a href="#RSS订阅浏览" class="headerlink" title="RSS订阅浏览"></a>RSS订阅浏览</h2><p>网上有很多提供RSS订阅浏览的插件和软件，用户可以根据自己的需求进行选择。然后就可以在自己的软件&#x2F;邮件中享受聚合信息推流服务。</p><h2 id="参考帮助"><a href="#参考帮助" class="headerlink" title="参考帮助"></a>参考帮助</h2><p><a href="https://icimence.cn/2020/11/06/hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0RSS%E8%AE%A2%E9%98%85/">https://icimence.cn/2020/11/06/hexo%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0RSS%E8%AE%A2%E9%98%85/</a><br><a href="http://nicethemes.cn/news/txtlist_i43205v.html">http://nicethemes.cn/news/txtlist_i43205v.html</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h1&gt;&lt;p&gt;RSS订阅对于一些朋友已经是上古的功能了，在Windows Vista时代的桌面小组件就有&lt;code&gt;RSS&lt;/code&gt;的</summary>
+      
+    
+    
+    
+    <category term="hexo教程" scheme="http://example.com/categories/hexo%E6%95%99%E7%A8%8B/"/>
+    
+    
+    <category term="hexo" scheme="http://example.com/tags/hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>解决Git报错之ssh:connect to host github.com port 22 ：Connection timed out</title>
